@@ -1,0 +1,35 @@
+import random
+num = random.randint(0,51)
+game_on = True
+user = input('Choose the number between  0 and 50  : ')
+while game_on:
+    if user.isdigit():
+        user = int(user)
+        if user not in range(0,51):
+            print('Invalid value')
+            user = input('Choose the number between  0 and 50  : ')
+        if user in range(0,51):
+            if user == num:
+                print('YOU WIN')
+                game_on = False 
+                if not game_on:
+                    ask = input('DO you wanna play again : Y or N').upper() 
+                    if ask == 'Y':
+                        game_on = True
+                        num = random.randint(0,51)
+                        user = input('Choose the number between  0 and 50  : ')
+
+                    else:
+                        break
+
+            elif user > num:
+                print('too high')
+                user = input('Choose the number between  0 and 50  : ')
+
+            elif user < num:
+                print('too low')
+                user = input('Choose the number between  0 and 50  : ')
+            
+    else:
+        print('Invalid value')
+        user = input('Choose the number between  0 and 50  : ')

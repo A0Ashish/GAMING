@@ -1,0 +1,77 @@
+
+import os
+def instruction():
+  print('This is Tic Tac Toe. We can see some numbers on the screen arranged in such a way that if you select any number than it will converted into \'X\' or \'O\' ' )
+
+def display(board):
+  print(board[0]+'|'+board[1]+'|'+board[2])
+  print(board[3]+'|'+board[4]+'|'+board[5])
+  print(board[6]+'|'+board[7]+'|'+board[8])
+board = ['0','1','2','3','4','5','6','7','8','9']
+
+
+select = {'player1' : 'X', 'player2' : 'Y'}
+def selection(select):  
+  waste = ['X','O']
+  user = input('Player one  choose between X or O').upper()
+  if user=='X':
+    select['player1'] = 'X'
+    select['player2'] = 'O'
+  else:
+    select['player2'] = 'X'
+    select['player1'] = 'O'  
+  while user not in waste:
+    print('Invalid value')
+    user = input('Player one choose between X or O').upper()
+  
+  print(select)
+
+
+
+def play():
+  empty = [ ]
+  game_on = True
+  while game_on:
+    num = input('Player one :  ')
+    while (num not in board):
+      num = input('invalid value, Player one select again')
+    if (num in board):
+      num = int(num)
+      board[num] = select['player1']
+      empty = empty +[num]
+      os.system('cls')
+
+      (display(board))
+            
+      if (board[0]==board[3]==board[6] or board[1]==board[4]==board[7] or board[8]==board[5]==board[2] or board[0]==board[1]==board[2] or board[3]==board[4]==board[5] or board[6]==board[7]==board[8] or board[0]==board[4]==board[8] or board[2]==board[4]==board[6]):
+        print('Congratulation!! Player one Won')
+        game_on = False
+      elif game_on and (len(empty)==5):
+        print('game draw')
+        return False   
+
+    if game_on:
+      num2 = input('Second Player:  ')    
+      while (num2 not in board):
+        num2 = input('invalid value, Player second select again  : ')
+        os.system('cls')
+
+        (display(board))                                      
+      if (num2 in board):
+        num2 = int(num2)
+        board[num2] = select['player2']
+        os.system('cls')
+
+    
+        (display(board))                                      
+        if board[0]==board[3]==board[6] or board[1]==board[4]==board[7] or board[8]==board[5]==board[2] or board[0]==board[1]==board[2] or board[3]==board[4]==board[5] or board[6]==board[7]==board[8] or board[0]==board[4]==board[8] or board[2]==board[4]==board[6]:
+          print('Congratulation!! Player second Won')
+          game_on = False
+        
+
+selection(select)
+
+instruction()
+display(board)
+play()
+
