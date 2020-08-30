@@ -7,7 +7,7 @@ new = []
 middle = ['SNAKE','GUN','WATER']
 game =True
 input('''Description of the game:\nThis is "snake, gun, water". This game will played 10 rounds between computer and user. 
-Both computer and user can select anyone option between given three options(Snake, Water, Gun) and winner will be decided by rule as below :\n1.Between "Snake" and "Water" = Snake(Because snake can drink water)\n2.Between "Snake" and "Gun" = Gun(Because snake can killed by gun)\n3.Between "Gun" and "Water" = Water(gun will damage inside water)\npress enter for continue ''')
+Both computer and user can select anyone option between given three options(Snake, Water, Gun) and winner will be decided by rules as below :\n1.Between "Snake" and "Water" = Snake(Because snake can drink water)\n2.Between "Snake" and "Gun" = Gun(Because snake can killed by gun)\n3.Between "Gun" and "Water" = Water(gun will damage inside water)\npress enter for continue ''')
 os.system('cls')
 while game and t<10:
     print(f'You have {r} round only')
@@ -16,7 +16,7 @@ while game and t<10:
 
     while user != '1' and user !='2' and user!= '3':
         os.system('cls')
-        print('Please select specified value')
+        print('Please select specified value(1,2,3)')
         user = input('''choose anyone\npress 1 for SNAKE\npress 2 for GUN\npress 3 for WATER \n=>''')
 
     if (user=='1' or user=='2' or user=='3'):
